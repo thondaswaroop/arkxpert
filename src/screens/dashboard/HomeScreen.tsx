@@ -206,7 +206,7 @@ const HomeScreen = () => {
                             todayScore={todayScore}
                         />
                     </View>
-                    <Text style={globalStyles.sectionTitle}>Your Power Picks</Text>
+                    <Text style={globalStyles.sectionTitle}>Your Faith Focus</Text>
                     <View style={globalStyles.categoriesContainer}>
                         {categories.map((category: any, index) => (
                             <TouchableOpacity

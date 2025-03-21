@@ -120,7 +120,7 @@ const CategoryScreen = ({ route }: any) => {
                             style={{
                                 width: itemWidth,
                                 marginBottom: 20,
-                                backgroundColor: '#1c1c1c',
+                                backgroundColor: '#fff',
                                 margin: 10,
                                 borderRadius: 8,
                             }}

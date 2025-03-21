@@ -143,28 +143,28 @@ const ViewTopic = ({ route }: any) => {
           </View>
 
           <View style={[globalStyles.padding, globalStyles.mBottom20]}>
-            <Text style={[globalStyles.h2, globalStyles.themeTextColor, { fontSize: 20 }]}>{topic.title}</Text>
+            <Text style={[globalStyles.h2, globalStyles.whiteColor, { fontSize: 20 }]}>{topic.title}</Text>
 
-            <Text style={[globalStyles.mTop20, globalStyles.h2, globalStyles.themeTextColor]}>
+            <Text style={[globalStyles.mTop20, globalStyles.h2, globalStyles.whiteColor]}>
               <Icon name="badge-account-horizontal" size={20} color="gold" /> &nbsp;
               <Text>{topic.categorytitle}</Text>
             </Text>
             <View style={[{ justifyContent: 'space-between', flexDirection: 'row' }]}>
-              <Text style={[globalStyles.mTop10, globalStyles.h2, globalStyles.themeTextColor]}>
+              <Text style={[globalStyles.mTop10, globalStyles.h2, globalStyles.whiteColor]}>
                 Quiz Questions: {topic.questionsLength}
               </Text>
-              <Text style={[globalStyles.mTop10, globalStyles.h2, globalStyles.themeTextColor]}>
+              <Text style={[globalStyles.mTop10, globalStyles.h2, globalStyles.whiteColor]}>
                 Score: {topic.totalScore}
               </Text>
             </View>
-            <Text style={[globalStyles.mTop10, globalStyles.normalFont, globalStyles.themeTextColor]}>{topic.description}</Text>
+            <Text style={[globalStyles.mTop10, globalStyles.normalFont, globalStyles.whiteColor]}>{topic.description}</Text>
 
           </View>
         </ScrollView>
         <View style={globalStyles.bottomEmptySpace}></View>
         <View style={[globalStyles.buttomButton, globalStyles.padding, globalStyles.fullWidth]}>
           <TouchableOpacity style={[globalStyles.borderButton, globalStyles.textCenter, { width: '60%' }]} onPress={startQuiz}>
-            <Text style={globalStyles.themeTextColor}>Let's Go</Text>
+            <Text style={globalStyles.whiteColor}>Let's Go</Text>
           </TouchableOpacity>
         </View>
       </View>

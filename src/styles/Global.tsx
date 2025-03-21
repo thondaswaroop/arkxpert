@@ -65,6 +65,11 @@ export const globalStyles = StyleSheet.create({
         height: 200,
         textAlign: 'center'
     },
+    logoMainImage: {
+        width: "60%",
+        height: 30,
+        textAlign: 'center'
+    },
     body: {
         padding: 10,
         flex: 1
@@ -199,8 +204,8 @@ export const globalStyles = StyleSheet.create({
         marginVertical: 10,
     },
     categoryImage: {
-        width: 100,
-        height: 100,
+        width: 120,
+        height: 120,
     },
     categoryInfo: {
         flex: 1,
@@ -276,6 +281,9 @@ export const globalStyles = StyleSheet.create({
         paddingBottom: 20
     },
     themeTextColor: {
+        color: GlobalColors.colors.black
+    },
+    whiteColor:{
         color: GlobalColors.colors.white
     },
     developerSection: {
@@ -510,6 +518,10 @@ export const globalStyles = StyleSheet.create({
       },
       input: {
         width: '100%',
+        marginBottom: 12,
+      },
+      halfWidthInput:{
+        width: '48%',
         marginBottom: 12,
       },
       buttonContainer: {

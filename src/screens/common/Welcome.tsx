@@ -42,18 +42,18 @@ const Welcome = () => {
                         <View style={globalStyles.mTop100}>
                             <Image
                                 source={imagesBucket.logo}
-                                style={[globalStyles.leftImage, globalStyles.mTop50]}
+                                style={[globalStyles.leftImage, globalStyles.mTop50,globalStyles.logoMainImage]}
                             />
-                            <Text style={[globalStyles.themeTextColor, globalStyles.h2, { paddingLeft: 0, paddingVertical: 10 }]}>
-                                Master the secrets to attract, impress, and keep her wanting more.
+                            <Text style={[globalStyles.whiteColor, globalStyles.h2, { paddingLeft: 0, paddingVertical: 10 }]}>
+                                A guided journey of spiritual transformation.
                             </Text>
                         </View>
                     </View>
                     <TouchableOpacity style={[globalStyles.playButton, globalStyles.mBottom10]} onPress={handleDoneButtonPress}>
-                        <Text style={globalStyles.themeTextColor}>Get Started</Text>
+                        <Text style={globalStyles.whiteColor}>Get Started</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[globalStyles.borderButton, globalStyles.mTop10, globalStyles.mBottom20]} onPress={createAccount}>
-                        <Text style={globalStyles.themeTextColor}>Create Your Account</Text>
+                        <Text style={globalStyles.whiteColor}>Create Your Account</Text>
                     </TouchableOpacity>
                 </View>
             </View>

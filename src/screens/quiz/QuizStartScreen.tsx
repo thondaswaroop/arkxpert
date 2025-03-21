@@ -278,7 +278,7 @@ const QuizStartScreen = ({ route }: any) => {
               />
               <View style={globalStyles.mTop20}>
                 <TouchableOpacity onPress={handleNextQuestion} style={globalStyles.borderButton}>
-                  <Text style={[globalStyles.smallButtonText, globalStyles.themeTextColor]}>NEXT</Text>
+                  <Text style={[globalStyles.smallButtonText, globalStyles.whiteColor]}>NEXT</Text>
                 </TouchableOpacity>
               </View>
             </View>

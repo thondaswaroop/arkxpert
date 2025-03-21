@@ -19,7 +19,7 @@ interface ImageSlideAreaProps {
 
 const ImageSlideArea: React.FC<ImageSlideAreaProps> = ({ images, isOffline, bannerData }) => {
   const displayImages = images.map(image => ({
-    img: isOffline && image.localImagePath ? `file://${image.localImagePath}` : image.img,
+    img: image.img,
   }));
 
   const clickImage = async (images: any, index: any) => {
@@ -37,21 +37,30 @@ const ImageSlideArea: React.FC<ImageSlideAreaProps> = ({ images, isOffline, bann
 
   return (
     <View style={styles.container}>
-      <ImageSlider
-        data={
-          displayImages.length > 0
-            ? displayImages
-            : [{ img: `${AppEnvironment.BaseUrl}images/logo.png` }]
-        }
-        autoPlay={true}
-        timer={4000}
-        onClick={(images, index) => clickImage(images, index)}
-        preview={false}
-        caroselImageStyle={styles.image} // Ensures proper display of images
-        closeIconColor="#fff"
-      />
+      {
+        displayImages.length > 0
+          ?
+          <View style={styles.container}>
+            <ImageSlider
+              data={displayImages}
+              autoPlay={true}
+              timer={2000}
+              onClick={(images, index) => clickImage(images, index)}
+              preview={false}
+              indicatorContainerStyle={{ bottom: -25 }}
+              activeIndicatorStyle={{backgroundColor:"#000"}}
+              inActiveIndicatorStyle={{backgroundColor:"#ccc"}}
+              caroselImageStyle={styles.image} // Ensures proper display of images
+              closeIconColor="#fff"
+            />
+          </View>
+          : <></>
+      }
+
     </View>
   );
+
+
 };
 
 const styles = StyleSheet.create({

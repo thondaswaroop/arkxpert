@@ -28,13 +28,13 @@ const QuestionComponent: React.FC<QuestionComponentProps> = ({
     <View style={styles.container}>
       {/* Question Text */}
       <View>
-        <Text style={[globalStyles.mediumFont, globalStyles.p, globalStyles.themeTextColor,  globalStyles.mBottom10]}>
+        <Text style={[globalStyles.mediumFont, globalStyles.p, globalStyles.whiteColor,  globalStyles.mBottom10]}>
           Question {currentQuestionIndex + 1} of {totalQuestions}
         </Text>
       </View>
 
       <View style={[globalStyles.textCenter, globalStyles.mBottom20]}>
-        <Text style={[styles.questionText, globalStyles.textCenter, globalStyles.themeTextColor]}>{question}</Text>
+        <Text style={[styles.questionText, globalStyles.textCenter, globalStyles.whiteColor]}>{question}</Text>
       </View>
 
       {/* Options */}

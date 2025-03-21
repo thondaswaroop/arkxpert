@@ -37,12 +37,12 @@ const SignIn = () => {
     showLoader();
 
     if (isEmpty(username)) {
-      showToast('warning', toast, 'Please Enter Username');
+      showToast('default', toast, 'Please Enter Username');
       hideLoader();
       return;
     }
     if (isEmpty(password)) {
-      showToast('warning', toast, 'Please Enter Password');
+      showToast('default', toast, 'Please Enter Password');
       hideLoader();
       return;
     }
@@ -55,7 +55,7 @@ const SignIn = () => {
     try {
       const response: any = await httpService.post('signin', data);
       loggerService('default', 'Sigin Response', response);
-      showToast('warning', toast, response.message);
+      showToast('default', toast, response.message);
       if (response.status) {
         successLogin(response.userinfo);
       }
@@ -70,103 +70,6 @@ const SignIn = () => {
     }
   };
 
-
-  // return (
-  //   <View style={globalStyles.introBg}>
-  //     <View style={authenticationStyles.logoContainer}>
-  //       <Image
-  //         source={imagesBucket.logo}
-  //         resizeMode='center'
-  //         style={authenticationStyles.logoImage}
-  //       />
-  //     </View>
-  //     {/* <View>
-  //       <Text style={[globalStyles.textCenter, globalStyles.h1, globalStyles.caps, globalStyles.mTop20, globalStyles.mBottom20, globalStyles.themeTextColor]}>
-  //         {AppEnvironment.AppName}
-  //       </Text>
-  //     </View> */}
-  //     <View>
-  //       <Text style={[globalStyles.textCenter, globalStyles.h2, globalStyles.caps, globalStyles.mBottom20, globalStyles.themeTextColor]}>
-  //         SIGN IN
-  //       </Text>
-  //     </View>
-  //     <View style={globalStyles.inputContainer}>
-  //       <PaperTextInput
-  //         style={authenticationStyles.inputText}
-  //         label="Email Address"
-  //         onChangeText={setUsername}
-  //         placeholder='Email Address'
-  //         value={username}
-  //       />
-  //       <PaperTextInput
-  //         style={authenticationStyles.inputText}
-  //         label="Password"
-  //         onChangeText={setPassword}
-  //         secureTextEntry={true}
-  //         placeholder='Password'
-  //         // right={<PaperTextInput.Icon icon="eye" />}
-  //         value={password}
-  //       />
-  //       <Button
-  //         style={authenticationStyles.loginButton}
-  //         mode="contained"
-  //         onPress={signInClick}
-  //       >
-  //         Sign In
-  //       </Button>
-  //       <View style={{ marginTop: 10 }}>
-          // <Text style={[globalStyles.textCenter, globalStyles.p, globalStyles.bold, globalStyles.themeTextColor]}>
-          //   Don't have an Account? <Text style={globalStyles.bold} onPress={() => navigation.navigate('SignUp')}>Sign Up</Text>
-          // </Text>
-  //       </View>
-  //     </View>
-  //   </View>
-  // );
-
-  // New Design Gokulesh(01-11-2024)
-
-  // return (
-  //   <View style={styles.container}>
-  //     <View style={styles.logoContainer}>
-  //       <Image
-  //         source={imagesBucket.logo}
-  //         resizeMode="center"
-  //         style={styles.logoImage}
-  //       />
-  //     </View>
-
-  //     <View style={styles.inputContainer}>
-  //       <CustomTextInput
-  //         name={username}
-  //         placeHolder="Email Address"
-  //         setName={setUsername}
-  //         style={styles.input}
-  //       />
-  //       <CustomTextInput
-  //         name={password}
-  //         placeHolder="Password"
-  //         setName={setPassword}
-  //         style={styles.input}
-  //       />
-  //     </View>
-
-  //     <View style={styles.buttonContainer}>
-  //       <Button
-  //         style={[authenticationStyles.loginButton,{borderRadius:50}]}
-  //         mode="contained"
-  //         onPress={signInClick}
-  //       >
-  //         Sign In
-  //       </Button>
-  //     </View>
-
-  //     <View style={{marginTop: 20}}>
-  //       <Text style={[globalStyles.textCenter, globalStyles.p, {color:GlobalColors.colors.black}]}>
-  //         Don't have an Account? <Text style={globalStyles.bold} onPress={() => navigation.navigate('SignUp')}>Sign Up</Text>
-  //       </Text>
-  //     </View>
-  //   </View>
-  // );
   
   return (
     <KeyboardAvoidingView

@@ -12,7 +12,7 @@ const LeaderBoard = ({ rank, totalScore, todayScore }: any) => {
             </View>
             <View style={{marginLeft:-20}}>
                 <View>
-                    <Text style={[globalStyles.textCenter, globalStyles.themeTextColor,{marginLeft:-5}]}>My Legacy</Text>
+                    <Text style={[globalStyles.textCenter, globalStyles.themeTextColor,{marginLeft:-5}]}>Kingdom Score</Text>
                 </View>
                 <View style={styles.statValuesRow}>
                     <View style={[globalStyles.padding]}>
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     rankValue: {
-        color: '#fff',
+        color: '#000',
         fontSize: 20,
         fontWeight: 'bold',
         marginTop: 5

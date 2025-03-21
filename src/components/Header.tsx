@@ -8,7 +8,7 @@ const CommonHeader = () => {
     return (
         < View style={styles.header} >
             <Image
-                source={imagesBucket.icon} // Replace with your logo
+                source={imagesBucket.logoMain} // Replace with your logo
                 style={styles.logo}
             />
             <Text style={styles.headerText}>{AppEnvironment.AppName}</Text>
@@ -27,13 +27,16 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     logo: {
-        width: 30,
-        height: 30,
+        width: 50,
+        borderRadius:50,
+        height: 50,
         marginLeft:10
     },
     headerText: {
         color: '#fff',
         fontSize: 20,
+        width:"100%",
+        textTransform:"uppercase",
         fontWeight: 'bold',
         marginLeft: 10,
     },

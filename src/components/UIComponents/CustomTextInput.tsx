@@ -25,8 +25,8 @@ const CustomTextInput: React.FC<Props> = ({ name, placeHolder, setName, style, i
           borderRadius: 2,
           height: 50
         }}
-        outlineColor="#BCBCBC"
-        activeOutlineColor="#f38039"
+        outlineColor="#bb9665"
+        activeOutlineColor="#83571b"
       />
     </View>
   );

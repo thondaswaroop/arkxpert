@@ -19,7 +19,8 @@ import { GlobalColors } from '../../styles/Colors';
 
 const SignUp = () => {
   const navigation = useNavigation();
-  const [fullname, setFullName] = useState('');
+  const [firstname, setFirstName] = useState('');
+  const [lastname, setLastName] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [nickname, setNickName] = useState('');
@@ -68,53 +69,43 @@ const SignUp = () => {
 
   const signUpClick = async () => {
     showLoader();
-    if (isEmpty(selectedCountry)) {
-      showToast('warning', toast, 'Please Select Your Country');
+    if (isEmpty(firstname)) {
+      showToast('default', toast, 'Please Enter First Name');
       hideLoader();
       return;
-    } else if (isEmpty(fullname)) {
-      showToast('warning', toast, 'Please Enter First Name');
+    } else if (isEmpty(lastname)) {
+      showToast('default', toast, 'Please Enter Last Name');
       hideLoader();
       return;
     } else if (isEmpty(nickname)) {
-      showToast('warning', toast, 'Please Enter Your Nick Name');
+      showToast('default', toast, 'Please Enter Your Nick Name');
       hideLoader();
       return;
     } else if (isEmpty(email)) {
-      showToast('warning', toast, 'Please enter Email Address');
+      showToast('default', toast, 'Please enter Email Address');
       hideLoader();
       return;
     } else if (!isValidEmail(email)) {
-      showToast('warning', toast, 'Please enter Valid Email Address');
-      hideLoader();
-      return;
-    } else if (isEmpty(ageGroup)) {
-      showToast('warning', toast, 'Please Select Your Age Group');
-      hideLoader();
-      return;
-    } else if (isEmpty(relationship)) {
-      showToast('warning', toast, 'Please Select Your Relationship Status');
+      showToast('default', toast, 'Please enter Valid Email Address');
       hideLoader();
       return;
     } else if (isEmpty(password)) {
-      showToast('warning', toast, 'Please enter Password');
+      showToast('default', toast, 'Please enter Password');
       hideLoader();
       return;
     } else {
       const data = {
-        fullname,
+        firstname,
+        lastname,
         email,
-        age: ageGroup,
         nickname,
-        relationship,
-        country: selectedCountry,
         password
       };
       try {
         const response: any = await httpService.post('signup', data);
         hideLoader();
         loggerService('default', 'Signup Response', response);
-        showToast('warning', toast, response.message);
+        showToast('default', toast, response.message);
         if (response.status) {
           successSignUp(response.userinfo);
         }
@@ -131,30 +122,29 @@ const SignUp = () => {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 0}
     >
-      <View style={globalStyles.imageContainer}>
-        <Image source={imagesBucket.logo} style={globalStyles.image} />
-      </View>
       <ScrollView contentContainerStyle={globalStyles.innerContainer} showsVerticalScrollIndicator={false}>
+        <View style={globalStyles.imageContainer}>
+          <Image source={imagesBucket.logo} style={globalStyles.image} />
+        </View>
 
-        <View style={[{ width: '100%' }, globalStyles.mTop20]}>
-          <View style={{ marginTop: 10 }}>
-            <DropdownComponent
-              data={countriesList}
-              label="Country"
-              placeholder="Select Country"
-              onValueChange={setSelectedCountry} // Update parent state
-              value={selectedCountry} // Controlled value from parent state
+        <View style={globalStyles.newInputContainer}>
+          <View style={globalStyles.flex}>
+
+            <CustomTextInput
+              name={firstname}
+              isPasswordField={false}
+              placeHolder="First Name"
+              setName={setFirstName}
+              style={globalStyles.halfWidthInput}
+            />
+            <CustomTextInput
+              name={lastname}
+              isPasswordField={false}
+              placeHolder="Last Name"
+              setName={setLastName}
+              style={globalStyles.halfWidthInput}
             />
           </View>
-        </View>
-        <View style={globalStyles.newInputContainer}>
-          <CustomTextInput
-            name={fullname}
-            isPasswordField={false}
-            placeHolder="First Name"
-            setName={setFullName}
-            style={globalStyles.input}
-          />
           <CustomTextInput
             isPasswordField={false}
             name={nickname}
@@ -169,25 +159,6 @@ const SignUp = () => {
             setName={setEmail}
             style={globalStyles.input}
           />
-        </View>
-
-        <View style={{ width: '100%' }}>
-          <DropdownComponent
-            data={ageSelectionData}
-            label="Age"
-            placeholder="Select Age Group"
-            onValueChange={setAgeGroup} // Update parent state
-            value={ageGroup} // Controlled value from parent state
-          />
-          <View style={{ marginTop: 10 }}>
-            <DropdownComponent
-              data={relationSelectionData}
-              label="Relationship Status"
-              placeholder="Select Relationship Status"
-              onValueChange={setRelationship} // Update parent state
-              value={relationship} // Controlled value from parent state
-            />
-          </View>
         </View>
 
         <View style={globalStyles.newInputContainer}>
